@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1>Search Results</h1>
+
+    {% for movie in results %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <h2 class="card-title">{{ movie.title }}</h2>
+          <p class="card-text">{{ movie.overview }}</p>
+          {% if current_user.is_authenticated %}
+            <form action="{{ url_for('add') }}" method="post">
+              <input type="hidden" name="movie_id" value="{{ movie.id }}">
+              <button type="submit" class="btn btn-primary">Add to My Movies</button>
+            </form>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

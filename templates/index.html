@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/index.css">
+    <title>Cinema Library</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        html, body {
+            background-color: #182033;
+            color: #FABF86;
+            font-family: 'Inter', sans-serif;
+            }
+
+            a {
+            text-decoration: none;
+            color: #FABF86;
+            }
+
+            a:hover {
+            color: #F58F29;
+            text-decoration: underline;
+            }
+
+            .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            }
+
+            .nav-item {
+
+            }
+
+            .logo {
+
+            }
+
+            .navbar-toggler:focus {
+            outline: none;
+            }
+
+            .poster {
+            width: 33%;
+            }
+
+    </style>
+  </head>
+
+  <body>
+  {% if current_user.is_authenticated %}
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="{{ url_for('index') }}">
+                <svg width="286" height="32" viewBox="0 0 286 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.91 11.134H19.958C19.958 10.042 19.874 8.88 19.706 7.648C19.566 6.388 19.188 5.226 18.572 4.162C17.956 3.07 17.018 2.174 15.758 1.474C14.526 0.773999 12.832 0.423998 10.676 0.423998C8.408 0.423998 6.602 0.815998 5.258 1.6C3.914 2.356 2.878 3.42 2.15 4.792C1.45 6.164 0.988 7.816 0.764 9.748C0.568 11.652 0.47 13.738 0.47 16.006C0.47 18.302 0.568 20.402 0.764 22.306C0.988 24.21 1.45 25.848 2.15 27.22C2.878 28.592 3.914 29.642 5.258 30.37C6.602 31.098 8.408 31.462 10.676 31.462C12.664 31.462 14.274 31.154 15.506 30.538C16.766 29.922 17.732 29.068 18.404 27.976C19.104 26.884 19.58 25.61 19.832 24.154C20.084 22.698 20.21 21.158 20.21 19.534H14.162C14.162 21.158 14.064 22.474 13.868 23.482C13.672 24.462 13.406 25.232 13.07 25.792C12.734 26.324 12.328 26.688 11.852 26.884C11.404 27.052 10.914 27.136 10.382 27.136C9.738 27.136 9.164 27.01 8.66 26.758C8.184 26.478 7.778 25.96 7.442 25.204C7.134 24.42 6.896 23.328 6.728 21.928C6.588 20.528 6.518 18.694 6.518 16.426C6.518 14.298 6.574 12.506 6.686 11.05C6.798 9.566 6.994 8.376 7.274 7.48C7.554 6.556 7.932 5.898 8.408 5.506C8.912 5.086 9.542 4.876 10.298 4.876C11.67 4.876 12.608 5.38 13.112 6.388C13.644 7.368 13.91 8.95 13.91 11.134ZM23.9526 31H30.0006V1.012H23.9526V31ZM41.4587 1.012H34.4867V31H40.0307V10H40.1147L47.5067 31H54.3947V1.012H48.8507V21.55H48.7667L41.4587 1.012ZM75.3619 1.012H58.6039V31H75.7819V26.044H64.6519V17.98H74.7319V13.024H64.6519V5.968H75.3619V1.012ZM78.9506 1.012V31H84.4946V7.06H84.5786L89.9126 31H94.6166L99.9506 7.06H100.035V31H105.579V1.012H96.6326L92.3066 22.18H92.2226L87.9386 1.012H78.9506ZM122.43 19.702L119.532 6.22H119.448L116.55 19.702H122.43ZM123.228 1.012L131.166 31H124.866L123.48 24.658H115.5L114.114 31H107.814L115.752 1.012H123.228ZM143.342 31H160.1V26.044H149.39V1.012H143.342V31ZM163.078 31H169.126V1.012H163.078V31ZM179.66 26.548V17.518H182.264C182.936 17.518 183.552 17.588 184.112 17.728C184.672 17.868 185.148 18.12 185.54 18.484C185.96 18.82 186.282 19.282 186.506 19.87C186.758 20.43 186.884 21.144 186.884 22.012C186.884 23.748 186.436 24.938 185.54 25.582C184.644 26.226 183.468 26.548 182.012 26.548H179.66ZM179.66 13.318V5.464H181.844C183.356 5.464 184.462 5.758 185.162 6.346C185.862 6.934 186.212 7.942 186.212 9.37C186.212 10.798 185.82 11.82 185.036 12.436C184.28 13.024 183.062 13.318 181.382 13.318H179.66ZM173.612 1.012V31H183.818C185.582 31 187.052 30.762 188.228 30.286C189.432 29.81 190.398 29.18 191.126 28.396C191.882 27.584 192.414 26.646 192.722 25.582C193.03 24.518 193.184 23.398 193.184 22.222C193.184 20.206 192.694 18.596 191.714 17.392C190.734 16.188 189.404 15.474 187.724 15.25V15.166C189.236 14.746 190.37 13.962 191.126 12.814C191.882 11.638 192.26 10.238 192.26 8.614C192.26 7.186 192.05 5.982 191.63 5.002C191.21 4.022 190.622 3.238 189.866 2.65C189.11 2.062 188.2 1.642 187.136 1.39C186.1 1.138 184.966 1.012 183.734 1.012H173.612ZM196.95 1.012V31H202.998V18.316H206.232C207.492 18.316 208.388 18.652 208.92 19.324C209.452 19.996 209.746 20.92 209.802 22.096L209.97 27.85C209.998 28.438 210.054 29.012 210.138 29.572C210.222 30.104 210.418 30.58 210.726 31H217.278V30.748C216.718 30.44 216.354 29.866 216.186 29.026C216.074 28.186 215.99 26.968 215.934 25.372C215.906 24.56 215.878 23.832 215.85 23.188C215.822 22.516 215.78 21.9 215.724 21.34C215.556 19.66 215.122 18.442 214.422 17.686C213.722 16.93 212.616 16.44 211.104 16.216V16.132C212.812 15.768 214.072 14.956 214.884 13.696C215.696 12.408 216.102 10.756 216.102 8.74C216.102 6.136 215.402 4.204 214.002 2.944C212.602 1.656 210.642 1.012 208.122 1.012H196.95ZM202.998 14.116V5.464H205.854C208.654 5.464 210.054 6.85 210.054 9.622C210.054 11.246 209.662 12.408 208.878 13.108C208.094 13.78 206.974 14.116 205.518 14.116H202.998ZM232.804 19.702L229.906 6.22H229.822L226.924 19.702H232.804ZM233.602 1.012L241.54 31H235.24L233.854 24.658H225.874L224.488 31H218.188L226.126 1.012H233.602ZM243.625 1.012V31H249.673V18.316H252.907C254.167 18.316 255.063 18.652 255.595 19.324C256.127 19.996 256.421 20.92 256.477 22.096L256.645 27.85C256.673 28.438 256.729 29.012 256.813 29.572C256.897 30.104 257.093 30.58 257.401 31H263.953V30.748C263.393 30.44 263.029 29.866 262.861 29.026C262.749 28.186 262.665 26.968 262.609 25.372C262.581 24.56 262.553 23.832 262.525 23.188C262.497 22.516 262.455 21.9 262.399 21.34C262.231 19.66 261.797 18.442 261.097 17.686C260.397 16.93 259.291 16.44 257.779 16.216V16.132C259.487 15.768 260.747 14.956 261.559 13.696C262.371 12.408 262.777 10.756 262.777 8.74C262.777 6.136 262.077 4.204 260.677 2.944C259.277 1.656 257.317 1.012 254.797 1.012H243.625ZM249.673 14.116V5.464H252.529C255.329 5.464 256.729 6.85 256.729 9.622C256.729 11.246 256.337 12.408 255.553 13.108C254.769 13.78 253.649 14.116 252.193 14.116H249.673ZM271.055 1.012H264.251L272.021 19.198V31H278.069V19.198L285.839 1.012H279.287L275.087 12.604H275.003L271.055 1.012Z" fill="#F58F29"/>
+                </svg>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                <img src="static/assets/burger.svg" alt="burger navigation icon">
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">movies</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="{{ url_for('myList') }}">myList</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="templates/about.html">about</a>
+                </div>
+                <div class="nav-item">
+                    <form action="{{ url_for('search') }}" method="post">
+                        <input type="text" name="query" placeholder="Search movies and TV shows">
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+                <div class="nav-item">
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="static/assets/user_icon.svg" alt="user dropdown">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="{{ url_for('settings') }}">settings</a>
+                            <hr class="dropdown-divider">
+                            <a class="dropdown-item" href="{{ url_for('logout') }}">logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid mt-5">
+        <h1>Welcome back, Josh!</h1>
+    </div>
+    <div class="container-fluid">
+        {% for movie in movies %}
+        <div class="poster">
+          {% if movie.poster_path %}
+            {% set poster_url = 'https://image.tmdb.org/t/p/original' + movie.poster_path %}
+            <img src="{{ poster_url }}" class="card-img-top" alt="{{ movie.title }}">
+          {% endif %}
+          <div class="">
+            <h5 class="">{{ movie.title }}</h5>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+      
+      
+
+    
+    {% else %}
+      <div class="container mt-5">
+          <div class="alert alert-danger">Please log in</div>
+      </div>
+      {% endif %}
+
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </body>
+  </html>
+  
